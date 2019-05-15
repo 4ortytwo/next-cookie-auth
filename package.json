@@ -4,7 +4,8 @@
   "description": "Cookie authentication with Next.js",
   "main": "server.js",
   "scripts": {
-    "dev": "node server.js"
+    "dev": "next",
+	"start": "node server.js"
   },
   "author": "Arthur Burgan",
   "license": "ISC",
