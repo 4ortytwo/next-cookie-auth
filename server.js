@@ -22,7 +22,6 @@ const authenticate = async (email, password) => {
   );
   return data.find(user => {
     if (user.email === email && user.website === password) {
-      console.log(user);
       return user;
     }
   });
@@ -47,6 +46,12 @@ app.prepare().then(() => {
     };
     res.cookie("token", userData, COOKIE_OPTIONS);
     res.json(userData);
+    console.log("user logged in");
+  });
+
+  server.post("/api/logout", (req, res) => {
+    res.clearCookie("token", COOKIE_OPTIONS);
+    res.sendStatus(204);
   });
 
   server.get("/api/profile", async (req, res) => {
